@@ -18,6 +18,7 @@
 		A5A520FB26EBF47D00D9583E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A520F926EBF47D00D9583E /* LaunchScreen.storyboard */; };
 		A5A5210926EBFD3E00D9583E /* ScrollStackContainerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5210726EBFD3E00D9583E /* ScrollStackContainerRow.swift */; };
 		A5A5210A26EBFD3E00D9583E /* ScrollStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5210826EBFD3E00D9583E /* ScrollStackView.swift */; };
+		A5A5210C26EBFE8000D9583E /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5210B26EBFE8000D9583E /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A5A520FC26EBF47D00D9583E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5A5210726EBFD3E00D9583E /* ScrollStackContainerRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollStackContainerRow.swift; sourceTree = "<group>"; };
 		A5A5210826EBFD3E00D9583E /* ScrollStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollStackView.swift; sourceTree = "<group>"; };
+		A5A5210B26EBFE8000D9583E /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		A5A520D026EBF40B00D9583E /* ScrollStackKit */ = {
 			isa = PBXGroup;
 			children = (
+				A5A5210D26EBFE8400D9583E /* Extension */,
 				A5A5210726EBFD3E00D9583E /* ScrollStackContainerRow.swift */,
 				A5A5210826EBFD3E00D9583E /* ScrollStackView.swift */,
 				A5A520D126EBF40B00D9583E /* ScrollStackKit.h */,
@@ -127,6 +130,14 @@
 				A5A520FC26EBF47D00D9583E /* Info.plist */,
 			);
 			path = ScrollStackKitDemo;
+			sourceTree = "<group>";
+		};
+		A5A5210D26EBFE8400D9583E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A5A5210B26EBFE8000D9583E /* UIView+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A5210C26EBFE8000D9583E /* UIView+.swift in Sources */,
 				A5A5210A26EBFD3E00D9583E /* ScrollStackView.swift in Sources */,
 				A5A5210926EBFD3E00D9583E /* ScrollStackContainerRow.swift in Sources */,
 			);
