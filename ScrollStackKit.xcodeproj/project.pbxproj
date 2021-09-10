@@ -100,10 +100,10 @@
 		A5A520D026EBF40B00D9583E /* ScrollStackKit */ = {
 			isa = PBXGroup;
 			children = (
-				A5A5210D26EBFE8400D9583E /* Extension */,
 				A5A5210726EBFD3E00D9583E /* ScrollStackContainerRow.swift */,
 				A5A5210826EBFD3E00D9583E /* ScrollStackView.swift */,
 				A5A520D126EBF40B00D9583E /* ScrollStackKit.h */,
+				A5A5210D26EBFE8400D9583E /* Extension */,
 				A5A520D226EBF40B00D9583E /* Info.plist */,
 			);
 			path = ScrollStackKit;

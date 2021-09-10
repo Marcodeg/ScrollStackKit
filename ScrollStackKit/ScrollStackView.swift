@@ -165,12 +165,16 @@ public class ScrollStackView: UIView {
         stackView.subviews.forEach({ $0.removeFromSuperview() })
     }
     
-    public func removeRow(_ controller: UIViewController) {
+    private func findRow(with controller: UIViewController) -> UIView? {
         let row =  rows.first { (row) -> Bool in
             guard let row = row as? ScrollStackContainerRow else { return false }
             return  row.controller == controller
         }
-        guard let view = row else { return }
+        return row
+    }
+    
+    public func removeRow(_ controller: UIViewController) {
+        guard let view = findRow(with: controller) else { return }
         removeRow(view)
     }
     
