@@ -16,6 +16,8 @@
 		A5A520F626EBF47C00D9583E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A520F426EBF47C00D9583E /* Main.storyboard */; };
 		A5A520F826EBF47D00D9583E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A520F726EBF47D00D9583E /* Assets.xcassets */; };
 		A5A520FB26EBF47D00D9583E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A520F926EBF47D00D9583E /* LaunchScreen.storyboard */; };
+		A5A5210926EBFD3E00D9583E /* ScrollStackContainerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5210726EBFD3E00D9583E /* ScrollStackContainerRow.swift */; };
+		A5A5210A26EBFD3E00D9583E /* ScrollStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A5210826EBFD3E00D9583E /* ScrollStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		A5A520F726EBF47D00D9583E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5A520FA26EBF47D00D9583E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5A520FC26EBF47D00D9583E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5A5210726EBFD3E00D9583E /* ScrollStackContainerRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollStackContainerRow.swift; sourceTree = "<group>"; };
+		A5A5210826EBFD3E00D9583E /* ScrollStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 		A5A520D026EBF40B00D9583E /* ScrollStackKit */ = {
 			isa = PBXGroup;
 			children = (
+				A5A5210726EBFD3E00D9583E /* ScrollStackContainerRow.swift */,
+				A5A5210826EBFD3E00D9583E /* ScrollStackView.swift */,
 				A5A520D126EBF40B00D9583E /* ScrollStackKit.h */,
 				A5A520D226EBF40B00D9583E /* Info.plist */,
 			);
@@ -201,6 +207,7 @@
 				TargetAttributes = {
 					A5A520CD26EBF40B00D9583E = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					A5A520D626EBF40B00D9583E = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -262,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A5210A26EBFD3E00D9583E /* ScrollStackView.swift in Sources */,
+				A5A5210926EBFD3E00D9583E /* ScrollStackContainerRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +447,7 @@
 		A5A520E326EBF40B00D9583E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -453,6 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = marcodelgiudice.ScrollStackKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,6 +472,7 @@
 		A5A520E426EBF40B00D9583E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -484,6 +496,7 @@
 		A5A520E626EBF40B00D9583E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ScrollStackKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -501,6 +514,7 @@
 		A5A520E726EBF40B00D9583E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ScrollStackKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
