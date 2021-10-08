@@ -29,8 +29,19 @@ public enum InsertLocation {
 
 public class ScrollStackView: UIView {
     
-    private let scrollView = UIScrollView()
-    private let stackView = UIStackView()
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInsetAdjustmentBehavior = .never
+        return scrollView
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        return stackView
+    }()
     
     public var scrollViewDelegate: UIScrollViewDelegate? {
         didSet{
@@ -38,10 +49,12 @@ public class ScrollStackView: UIView {
         }
     }
     
+    /// The list of views inside the ScrollStack
     public var rows: [UIView] {
         return self.stackView.arrangedSubviews
     }
     
+    /// The custom distance that the content view is inset from the safe area or scroll view edges.
     public var contentInset: UIEdgeInsets = .zero {
         didSet{
             self.scrollView.contentInset = contentInset
@@ -50,32 +63,25 @@ public class ScrollStackView: UIView {
     
     init() {
         super.init(frame: .zero)
-        setupUI()
+        setupViewHierarchy()
+        setupLayoutContraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupUI()
+        setupViewHierarchy()
+        setupLayoutContraints()
     }
-
-    /// set the stackview layout constraint inside the scrollview
-    private func setupUI() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentInsetAdjustmentBehavior = .never
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        
+    
+    private func setupViewHierarchy() {
         scrollView.addSubview(stackView)
         self.addSubview(scrollView)
-        
+    }
+    
+    private func setupLayoutContraints() {
         NSLayoutConstraint.activate(
             stackView.constraintsForAnchoringTo(boundsOf: scrollView) +
-                [self.stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)]
-        )
-        
-        NSLayoutConstraint.activate(
-            scrollView.constraintsForAnchoringTo(boundsOf: self) +
-                [self.scrollView.widthAnchor.constraint(equalTo: self.widthAnchor)]
+            scrollView.constraintsForAnchoringTo(boundsOf: self)
         )
     }
     
@@ -102,6 +108,12 @@ public class ScrollStackView: UIView {
         }
     }
     
+    /// insert a view inside the stack
+    /// - Parameters:
+    ///   - controller: the controller to insert
+    ///   - height: the height to set at the view if needed
+    ///   - location: the location for the new row
+    ///   - spacing: spacing applied after the row
     public func insertRow(_ controller: UIViewController, withFixedHeight height: CGFloat? = nil, at location: InsertLocation = .bottom, spacing: CGFloat? = nil) {
         guard let view = createRowFromController(controller) else { return }
         self.insertRow(view,withFixedHeight: height, at: location, spacing: spacing)
@@ -165,16 +177,14 @@ public class ScrollStackView: UIView {
         stackView.subviews.forEach({ $0.removeFromSuperview() })
     }
     
-    private func findRow(with controller: UIViewController) -> UIView? {
+    /// remove a row with the given controller
+    /// - Parameter view: the controller to remove
+    public func removeRow(_ controller: UIViewController) {
         let row =  rows.first { (row) -> Bool in
             guard let row = row as? ScrollStackContainerRow else { return false }
             return  row.controller == controller
         }
-        return row
-    }
-    
-    public func removeRow(_ controller: UIViewController) {
-        guard let view = findRow(with: controller) else { return }
+        guard let view = row else { return }
         removeRow(view)
     }
     
@@ -230,9 +240,11 @@ public class ScrollStackView: UIView {
         }
     }
     
+    /// scroll to the top of the scroll stack
     public func goToTop() {
         self.scrollView.setContentOffset(.zero, animated: true)
     }
     
 }
+
 

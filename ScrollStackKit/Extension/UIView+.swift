@@ -25,10 +25,11 @@ extension UIView {
     var viewController: UIViewController? {
         var responder = next
         while responder != nil {
-            if responder is UIViewController {
-                return responder as? UIViewController
+            guard let controller = responder as? UIViewController else {
+                responder = responder?.next
+                continue
             }
-            responder = responder?.next
+            return controller
         }
         return nil
     }
