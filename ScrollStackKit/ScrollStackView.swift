@@ -61,29 +61,30 @@ public class ScrollStackView: UIView {
         }
     }
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         setupViewHierarchy()
         setupLayoutContraints()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupViewHierarchy()
         setupLayoutContraints()
     }
     
     private func setupViewHierarchy() {
+        addSubview(scrollView)
         scrollView.addSubview(stackView)
-        self.addSubview(scrollView)
     }
     
     private func setupLayoutContraints() {
         NSLayoutConstraint.activate(
+            scrollView.constraintsForAnchoringTo(boundsOf: self) +
             stackView.constraintsForAnchoringTo(boundsOf: scrollView) +
-            scrollView.constraintsForAnchoringTo(boundsOf: self)
-        )
-    }
+            [stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)]
+            )
+        }
     
     /// insert a view inside the stack
     /// - Parameters:
