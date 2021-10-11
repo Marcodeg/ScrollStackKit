@@ -16,7 +16,7 @@ public enum RowVisibility {
     case partially
 }
 
-/// The location in wich to insert the row
+/// The location of a row
 public enum InsertLocation {
     case top
     case bottom
@@ -27,6 +27,11 @@ public enum InsertLocation {
     case beforeController(UIViewController)
 }
 
+/// Scroll Stack Kit is based on UIKit and provides a scrollable stack view, called ScrollStackView.
+///
+///ScrollStackView is a view that allows you to create vertical scrollable layouts in an easy way, using a combination of UIScrollView and UIStackView. Acquiring all the benefits of these two components it uses autolayout to position and size all the rows within itself.
+///
+///ScrollStackView finds a perfect use when you need to manage a list of heterogeneous elements in a scrollable layout, it allows you to avoid the tedious management of recycling views separating the logic of each element.
 public class ScrollStackView: UIView {
     
     private lazy var scrollView: UIScrollView = {
