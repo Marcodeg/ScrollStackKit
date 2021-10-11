@@ -52,6 +52,10 @@ class ViewController: UIViewController {
         scrollStack.insertRow(horizontalCollectionViewController, withFixedHeight: 150)
         scrollStack.insertRow(BannerView(), spacing: 32)
         scrollStack.insertRow(verticalCollectionViewController, withFixedHeight: 460)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.verticalCollectionViewController.view.isHidden = true
+        }
     }
     
     private func setupSubviews() {

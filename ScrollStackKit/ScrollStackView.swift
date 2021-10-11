@@ -115,6 +115,8 @@ public class ScrollStackView: UIView {
     }
     
     /// insert a view inside the stack
+    ///
+    ///  If no location is indicated for the insertion of a row, it will be inserted as the last one.
     /// - Parameters:
     ///   - controller: the controller to insert
     ///   - height: the height to set at the view if needed
@@ -219,12 +221,33 @@ public class ScrollStackView: UIView {
     }
     
     /// get the visibility type of a given cell
+    /// - Parameter controller: the controller whose type to receive
+    /// - Returns: the visibility type
+    public func getRowVisibility(_ controller: UIViewController) -> RowVisibility? {
+        let row =  rows.first { (row) -> Bool in
+            guard let row = row as? ScrollStackContainerRow else { return false }
+            return  row.controller == controller
+        }
+        guard let view = row else { return nil }
+        guard self.rows.contains(view) else { return nil }
+        //convert view frame to the scroll view coordinate system
+        let rowFrame = convert(view.frame, to: self)
+        if !bounds.intersects(rowFrame) {
+            return .offscreen
+        }
+        if bounds.contains(rowFrame) {
+            return .entirely
+        } else {
+            return .partially
+        }
+    }
+    
+    /// get the visibility type of a given cell
     /// - Parameter index: the index whose type to receive
     /// - Returns: the visibility type
     public func getRowVisibility(_ index: Int) -> RowVisibility? {
         guard let view = getView(by: index), self.rows.contains(view) else { return nil }
         return getRowVisibility(view)
-
     }
     
     /// get the view at the given index inside the rows
