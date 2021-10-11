@@ -45,7 +45,7 @@ pod 'ScrollStackKit'
 
 **Importing MagazineLayout**
 
-At the top of the file where you'd like to use ScrollStackKit, import MagazineLayout.
+At the top of the file where you'd like to use ScrollStackView, import ScrollStackKit.
 
 ```swift
 import ScrollStackKit 
