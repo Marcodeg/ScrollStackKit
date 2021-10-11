@@ -62,9 +62,9 @@ let scrollStack = ScrollStackView()
 
 ```swift
 func insertRow(_ controller: UIViewController,
-                          withFixedHeight height: CGFloat? = nil,
-                          at location: InsertLocation = .bottom,
-                          spacing: CGFloat? = nil)
+               withFixedHeight height: CGFloat? = nil,
+               at location: InsertLocation = .bottom,
+               spacing: CGFloat? = nil)
 ```
 The methods take as parameters:
 
