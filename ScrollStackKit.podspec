@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ScrollStackKit"
-  spec.version      = "0.0.1"
-  spec.summary      = "A CocoaPods library written in Swift"
+  spec.version      = "0.0.3"
+  spec.summary      = "A performant and easy UI component that allows you to create vertical scrollable layouts."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,11 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-A simple way to implement scroll view with scroll stack.
+Scroll Stack Kit is based on UIKit and provides a scrollable stack view, called ScrollStackView.
+
+ScrollStackView is a view that allows you to create vertical scrollable layouts in an easy way, using a combination of UIScrollView and UIStackView. Acquiring all the benefits of these two components it uses autolayout to position and size all the rows within itself.
+
+ScrollStackView finds a perfect use when you need to manage a list of heterogeneous elements in a scrollable layout, it allows you to avoid the tedious management of recycling views separating the logic of each element.
                    DESC
 
   spec.homepage     = "https://github.com/Marcodeg/ScrollStackKit"
