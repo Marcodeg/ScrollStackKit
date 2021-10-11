@@ -30,6 +30,8 @@ __Combining these two approaches will allow your controller to be lightweight an
 ```
 pod 'ScrollStackKit'
 ```
+### Demo
+In this repository you can also find a demo.
 
 ## License
 This software is released under the MIT license. See LICENSE for details.
