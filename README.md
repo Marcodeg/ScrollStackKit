@@ -9,7 +9,7 @@ __ScrollStackView__ is a view that allows you to create vertical scrollable layo
 
 `ScrollStackView` finds a perfect use when you need to manage a list of __heterogeneous elements in a scrollable layout__, it allows you to avoid the tedious management of recycling views separating the logic of each element. 
 
-## No more massive controllers
+### No more massive controllers
 With ScrollStackKit you can split the UI into several sections, these sections are called rows, each row can be a
 [UIViewController](https://developer.apple.com/documentation/uikit/uiviewcontroller) or a [UIView](https://developer.apple.com/documentation/uikit/uiview/).
 
