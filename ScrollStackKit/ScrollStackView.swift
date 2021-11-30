@@ -56,13 +56,13 @@ public class ScrollStackView: UIView {
     
     /// The list of views inside the ScrollStack
     public var rows: [UIView] {
-        return self.stackView.arrangedSubviews
+        return stackView.arrangedSubviews
     }
     
     /// The custom distance that the content view is inset from the safe area or scroll view edges.
     public var contentInset: UIEdgeInsets = .zero {
         didSet{
-            self.scrollView.contentInset = contentInset
+            scrollView.contentInset = contentInset
         }
     }
     
@@ -124,11 +124,11 @@ public class ScrollStackView: UIView {
     ///   - spacing: spacing applied after the row
     public func insertRow(_ controller: UIViewController, withFixedHeight height: CGFloat? = nil, at location: InsertLocation = .bottom, spacing: CGFloat? = nil) {
         guard let view = createRowFromController(controller) else { return }
-        self.insertRow(view,withFixedHeight: height, at: location, spacing: spacing)
+        insertRow(view,withFixedHeight: height, at: location, spacing: spacing)
     }
     
     private func createRowFromController(_ controller: UIViewController) -> ScrollStackContainerRow? {
-        guard let parentController = self.viewController else { return nil }
+        guard let parentController = viewController else { return nil }
         let view = ScrollStackContainerRow(parentController: parentController, childViewController: controller, scrollStack: self)
         return view
     }
@@ -176,7 +176,7 @@ public class ScrollStackView: UIView {
     /// remove a row with the given view
     /// - Parameter view: the view to remove
     public func removeRow(_ view: UIView) {
-        if self.rows.contains(view) {
+        if rows.contains(view) {
             view.removeFromSuperview()
         }
     }
@@ -207,7 +207,7 @@ public class ScrollStackView: UIView {
     /// - Parameter view: the view whose type to receive
     /// - Returns: the visibility type
     public func getRowVisibility(_ view: UIView) -> RowVisibility? {
-        guard self.rows.contains(view) else { return nil }
+        guard rows.contains(view) else { return nil }
         //convert view frame to the scroll view coordinate system
         let rowFrame = convert(view.frame, to: self)
         if !bounds.intersects(rowFrame) {
@@ -229,7 +229,7 @@ public class ScrollStackView: UIView {
             return  row.controller == controller
         }
         guard let view = row else { return nil }
-        guard self.rows.contains(view) else { return nil }
+        guard rows.contains(view) else { return nil }
         //convert view frame to the scroll view coordinate system
         let rowFrame = convert(view.frame, to: self)
         if !bounds.intersects(rowFrame) {
@@ -246,7 +246,7 @@ public class ScrollStackView: UIView {
     /// - Parameter index: the index whose type to receive
     /// - Returns: the visibility type
     public func getRowVisibility(_ index: Int) -> RowVisibility? {
-        guard let view = getView(by: index), self.rows.contains(view) else { return nil }
+        guard let view = getView(by: index), rows.contains(view) else { return nil }
         return getRowVisibility(view)
     }
     
@@ -262,7 +262,7 @@ public class ScrollStackView: UIView {
     /// - Parameter index: the index from which to get the view
     /// - Returns: return the view if it exists
     public func containsView(view: UIView) -> Bool {
-        if self.rows.contains(view) {
+        if rows.contains(view) {
             return true
         } else {
             return false
@@ -271,7 +271,7 @@ public class ScrollStackView: UIView {
     
     /// scroll to the top of the scroll stack
     public func goToTop() {
-        self.scrollView.setContentOffset(.zero, animated: true)
+        scrollView.setContentOffset(.zero, animated: true)
     }
     
 }
