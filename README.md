@@ -43,7 +43,7 @@ __Combining these two approaches will allow your controller to be lightweight an
 pod 'ScrollStackKit'
 ```
 
-**Importing MagazineLayout**
+**Importing**
 
 At the top of the file where you'd like to use ScrollStackKit, import MagazineLayout.
 
